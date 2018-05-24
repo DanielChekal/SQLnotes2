@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("MyContactApp", "MainActivity: setting up the layout");
         setContentView(R.layout.activity_main);
 
         mydb = new DataBaseHelper(this);
