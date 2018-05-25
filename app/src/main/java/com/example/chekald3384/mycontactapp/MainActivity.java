@@ -1,5 +1,7 @@
 package com.example.chekald3384.mycontactapp;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,5 +37,33 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    public void viewData (View view){
+        Cursor res = mydb.getAllData();
+        Log.d("MyContactApp", "MainActivity: viewData: Received cursor");
+
+        if (res.getCount() == 0){
+            showMessage("Error", "No data found in database");
+            return;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while(res.moveToNext()){
+        //Append res column 0,1,2,3, to the buffer - see StringBuffer and Cursor api.
+        //Delimit each of the "appends" with line feed "\n"
+        }
+
+        showMessage("Data", buffer.toString());
+    }
+
+    private void showMessage(String title, String message) {
+        Log.d("MyContactApp", "MainActivity: showMessage: assembling AlertDialog");
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+
 
 }
