@@ -1,5 +1,6 @@
 package com.example.chekald3384.mycontactapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -65,5 +67,12 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
+    public static final String EXTRA_MESSAGE = "com.example.chekald3384.mycontactapp.MESSAGE";
+    public void SearchRecord (View view){
+        Log.d("MyContactApp", "MainActivity: launching SearchActivity");
+        android.content.Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, editName.getText().toString());
+        startActivity(intent);
 
+    }
 }
