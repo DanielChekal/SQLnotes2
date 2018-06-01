@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     DataBaseHelper mydb;
     EditText editName;
+    EditText editPhone;
+    EditText editAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         editName = findViewById(R.id.editText_name);
+        editAddress = findViewById(R.id.editText_address);
+        editPhone = findViewById(R.id.editText_phone);
 
         mydb = new DataBaseHelper(this);
         Log.d("MyContactApp", "MainActivity: instantiated mydb");
@@ -51,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-        //Append res column 0,1,2,3, to the buffer - see StringBuffer and Cursor api.
+            if (res.moveToNext() = 0){
+
+            }
+            buffer.append(res + "\n");
+            showMessage("Contacts", "Name: "+editName.getText().toString()+"\nPhone: "+editPhone.getText().toString() + "\nAddress: " +editAddress.getText().toString());
+            //Append res column 0,1,2,3, to the buffer - see StringBuffer and Cursor api.
         //Delimit each of the "appends" with line feed "\n"
         }
 
