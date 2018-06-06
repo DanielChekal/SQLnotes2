@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
             buffer.append("\nNumber: " + res.getString(2));
             buffer.append("\nAddress: " + res.getString(3) + "\n");
         }
-
         showMessage("Data", buffer.toString());
         string = buffer.toString();
     }
@@ -97,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
 
         for(int index: indexes) {
             if (index >= 0 && index<string.length()){
-                str = "";
+
                 for (int i = 0; i < 3; i++) {
                     Log.d("MyContactApp", "MainActivity: Launching SearchActivity2");
                     while (string.substring(index).indexOf("\n") != 0) {
                         Log.d("MyContactApp", "MainActivity: Launching SearchActivity3");
                         if (index >= 0 && index < string.length()) {
+                            if(str.equals("No match found in Database"))
+                                str = "";
                             str += string.substring(index, index + 1);
                         }
                         index++;

@@ -20,9 +20,7 @@ public class SearchActivity extends AppCompatActivity {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
 
         //Set the string in TextView
-        TextView textView = findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.textView4);
         textView.setText(message);
-
-
     }
 }
